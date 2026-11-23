@@ -72,5 +72,7 @@ export const PAGE_SIZE = { products: 12, projects: 9, admin: 20 };
 
 export const DEFAULT_LOGO = '/images/logo.png';
 export const DEFAULT_LOGO_LIGHT = '/images/logo-light.png';
+/** Stacked logo (icon above the ARKA wordmark), white text on a transparent background — used over the hero banner. */
+export const HERO_LOGO = '/images/logo-hero.png';
 export const LOGO_ICON = '/images/logo-icon.png';
 export const PLACEHOLDER_IMG = '/images/placeholder.svg';

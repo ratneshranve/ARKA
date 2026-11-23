@@ -1,6 +1,7 @@
 import { escapeHtml } from '../utils/escapeHtml.js';
 
-const BRAND = { dark: '#263238', green: '#2E8B2E', sun: '#F5A623', muted: '#F2F5F6' };
+// Matches the website theme ("White + Green"): navy, deep green, orange accent
+const BRAND = { dark: '#123F73', green: '#1E7B34', sun: '#F57C1F', muted: '#F5F8FB' };
 
 /** Shared, mobile-friendly email wrapper (inline styles, max 600px). */
 export function layout({ settings, title, bodyHtml }) {
@@ -22,7 +23,7 @@ export function layout({ settings, title, bodyHtml }) {
           <h1 style="font-size:20px;margin:0 0 16px;color:${BRAND.dark};">${escapeHtml(title)}</h1>
           ${bodyHtml}
         </td></tr>
-        <tr><td style="padding:16px 24px;background:${BRAND.dark};color:#cfd8dc;font-size:12px;text-align:center;">
+        <tr><td style="padding:16px 24px;background:${BRAND.dark};color:#D7E4F3;font-size:12px;text-align:center;">
           &copy; ${new Date().getFullYear()} ${company}
         </td></tr>
       </table>
@@ -45,7 +46,7 @@ export function rowsTable(rows) {
 }
 
 export function button(href, label) {
-  return `<p style="margin:20px 0;"><a href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND.sun};color:${BRAND.dark};text-decoration:none;font-weight:700;padding:12px 22px;border-radius:8px;">${escapeHtml(label)}</a></p>`;
+  return `<p style="margin:20px 0;"><a href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND.green};color:#ffffff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:8px;">${escapeHtml(label)}</a></p>`;
 }
 
 export const rowsText = (rows) =>

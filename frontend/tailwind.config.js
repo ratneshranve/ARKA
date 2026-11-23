@@ -1,65 +1,68 @@
 import typography from '@tailwindcss/typography';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** Design tokens matching the ARKA Solar Energy logo (Charcoal + Leaf Green + Solar Blue). */
+/**
+ * Design tokens — theme "White + Green":
+ * navy blue for headings/text, deep green for primary actions, orange accent, white/light surfaces.
+ */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        // Charcoal — "ARKA" wordmark, structure and roof in logo
+        // Navy blue — headings, body emphasis, top bar, footer, secondary buttons
         primary: {
-          DEFAULT: '#263238',
-          50: '#F2F5F6',
-          100: '#E1E7EA',
-          200: '#C5D0D5',
-          300: '#9AA9B0',
-          400: '#6B7D86',
-          500: '#46575F',
-          600: '#37474F',
-          700: '#263238',
-          800: '#1C262B',
-          900: '#10181C',
+          DEFAULT: '#123F73',
+          50: '#EEF4FB',
+          100: '#D7E4F3',
+          200: '#AFC8E6',
+          300: '#7FA4D2',
+          400: '#4D7DB9',
+          500: '#2A5F9E',
+          600: '#1B4F8A',
+          700: '#123F73',
+          800: '#0C305A',
+          900: '#082343',
         },
-        // Leaf green — "SOLAR ENERGY" and leaves in logo
+        // Deep green — primary call-to-action buttons, "SOLAR ENERGY", success accents
         brand: {
-          DEFAULT: '#2E8B2E',
-          light: '#5FAE2E',
-          dark: '#23702A',
-          50: '#EEF7EC',
-          100: '#D7EDD2',
+          DEFAULT: '#1E7B34',
+          light: '#43A047',
+          dark: '#176128',
+          50: '#ECF7EE',
+          100: '#D2ECD7',
         },
-        // Solar Blue — clean photovoltaic solar panel blue (replacing yellow)
+        // Orange — underlines, highlights, active indicators, focus rings
         accent: {
-          DEFAULT: '#0284C7',
-          hover: '#0369A1',
-          light: '#38BDF8',
-          deep: '#075985',
-          50: '#F0F9FF',
-          100: '#E0F2FE',
+          DEFAULT: '#F57C1F',
+          hover: '#DD6A0F',
+          light: '#FFB067',
+          deep: '#C2570A',
+          50: '#FFF4EA',
+          100: '#FFE4CC',
         },
-        // Solar panel teal
-        panel: { DEFAULT: '#0E6E6B', light: '#13908B', 50: '#E7F4F3' },
+        // Solar-panel blue — project-type chips and info notes
+        panel: { DEFAULT: '#1D6FB0', light: '#3B8FD0', 50: '#EAF3FB' },
         success: '#16A34A',
         danger: '#DC2626',
         surface: '#FFFFFF',
-        muted: '#F5F7F6',
-        border: '#E3E7EA',
-        ink: { DEFAULT: '#1F2937', muted: '#5B6577' },
+        muted: '#F5F8FB',
+        border: '#E2E8F0',
+        ink: { DEFAULT: '#1E293B', muted: '#55657A' },
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: { prose: '70ch' },
       boxShadow: {
-        card: '0 1px 2px rgba(16,24,28,.06), 0 4px 16px rgba(16,24,28,.06)',
-        'card-hover': '0 4px 8px rgba(16,24,28,.08), 0 12px 32px rgba(16,24,28,.12)',
+        card: '0 1px 2px rgba(8,35,67,.06), 0 4px 16px rgba(8,35,67,.06)',
+        'card-hover': '0 4px 8px rgba(8,35,67,.08), 0 12px 32px rgba(8,35,67,.12)',
       },
       backgroundImage: {
         // Logo sun — orange to yellow
         'sun-gradient': 'linear-gradient(135deg, #F58A1F 0%, #F5A623 45%, #FFD66B 100%)',
-        'solar-gradient': 'linear-gradient(135deg, #075985 0%, #0284C7 50%, #38BDF8 100%)',
-        'brand-gradient': 'linear-gradient(135deg, #23702A 0%, #2E8B2E 50%, #5FAE2E 100%)',
+        'solar-gradient': 'linear-gradient(135deg, #0C305A 0%, #123F73 50%, #2A5F9E 100%)',
+        'brand-gradient': 'linear-gradient(135deg, #176128 0%, #1E7B34 50%, #43A047 100%)',
       },
       keyframes: {
         'fade-in': { from: { opacity: 0 }, to: { opacity: 1 } },

@@ -9,9 +9,23 @@ import { useBanners } from '@/hooks/usePublicData';
 import { useSettings } from '@/hooks/useSettings';
 import { cldUrl, IMG } from '@/lib/cloudinary';
 import { cn } from '@/lib/cn';
-import { ROUTES } from '@/lib/constants';
+import { HERO_LOGO, ROUTES } from '@/lib/constants';
 
 const HEIGHT = 'h-[540px] sm:h-[520px] lg:h-[600px]';
+
+/** Company logo above the banner text: icon on top, ARKA wordmark below (light version, transparent background). */
+function HeroLogo() {
+  return (
+    <img
+      src={HERO_LOGO}
+      alt=""
+      aria-hidden="true"
+      width="794"
+      height="470"
+      className="mb-6 h-24 w-auto max-w-full drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] sm:h-28 lg:h-36"
+    />
+  );
+}
 
 function CtaButton({ label, link }) {
   if (!label || !link) return null;
@@ -35,6 +49,7 @@ function StaticHero() {
       <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-sun-gradient opacity-40 blur-2xl" aria-hidden="true" />
       <div className="absolute -bottom-40 left-0 h-80 w-[50rem] rounded-full bg-brand opacity-30 blur-3xl" aria-hidden="true" />
       <div className="container-page relative">
+        <HeroLogo />
         <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">{company.name}</h1>
         {company.tagline && <p className="mt-5 max-w-xl text-lg text-primary-100 md:text-xl">{company.tagline}</p>}
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -104,10 +119,10 @@ export default function HeroSlider() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/85 via-primary-900/50 to-primary-900/20 md:bg-gradient-to-r md:from-primary-900/85 md:via-primary-900/50 md:to-transparent" />
-                <div className="container-page relative flex h-full items-end pb-16 md:items-center md:pb-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/65 to-primary-900/35 md:bg-gradient-to-r md:from-primary-900/85 md:via-primary-900/50 md:to-transparent" />
+                <div className="container-page relative flex h-full items-center pb-20 pt-4 md:pb-24">
                   <div className="max-w-2xl">
-                    <span className="mb-4 block h-1 w-14 rounded bg-accent" aria-hidden="true" />
+                    <HeroLogo />
                     <Heading className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[52px]">{b.title}</Heading>
                     {b.subtitle && <p className="mt-4 text-base text-primary-100 sm:text-lg">{b.subtitle}</p>}
                     <div className="mt-7">

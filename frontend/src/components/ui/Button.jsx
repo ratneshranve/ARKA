@@ -4,7 +4,8 @@ import { cn } from '@/lib/cn';
 import Spinner from './Spinner';
 
 const variants = {
-  primary: 'bg-accent text-white hover:bg-accent-hover shadow-sm',
+  // Main call to action — green, as in the "White + Green" theme
+  primary: 'bg-brand text-white hover:bg-brand-dark shadow-sm',
   secondary: 'bg-primary text-white hover:bg-primary-800 shadow-sm',
   brand: 'bg-brand text-white hover:bg-brand-dark shadow-sm',
   outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',

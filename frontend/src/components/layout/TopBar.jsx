@@ -11,7 +11,7 @@ export default function TopBar() {
 
   return (
     <div className="hidden bg-primary text-sm text-primary-100 md:block">
-      <div className="container-page flex h-10 items-center justify-between gap-4">
+      <div className="container-page flex h-10 items-center justify-center gap-8">
         <ul className="flex min-w-0 items-center gap-6">
           {phone && (
             <li>

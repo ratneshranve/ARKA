@@ -51,7 +51,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <Button to={ROUTES.contact} className="hidden lg:inline-flex">
             Get a Quote
           </Button>
