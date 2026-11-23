@@ -19,8 +19,9 @@ async function start() {
   verifyMailer();
 
   const app = createApp();
-  const server = app.listen(env.PORT, '127.0.0.1', () => {
-    logger.info(`API listening on http://127.0.0.1:${env.PORT} (${env.NODE_ENV})`);
+  const host = process.env.HOST || '0.0.0.0';
+  const server = app.listen(env.PORT, host, () => {
+    logger.info(`API listening on http://${host}:${env.PORT} (${env.NODE_ENV})`);
   });
 
   let shuttingDown = false;

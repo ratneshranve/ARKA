@@ -2,15 +2,15 @@
   "name": "arka-solar-energy",
   "version": "1.0.0",
   "private": true,
-  "description": "ARKA Solar Energy — solar products & projects website (MERN)",
+  "description": "ARKA Solar Energy \u2014 solar products & projects website (MERN)",
   "workspaces": [
     "backend",
     "frontend"
   ],
   "scripts": {
-    "dev": "concurrently -n api,web -c green,yellow \"npm run dev -w backend\" \"npm run dev -w frontend\"",
-    "build": "npm run build -w frontend",
-    "start": "npm start -w backend",
+    "dev": "node init && concurrently -n api,web -c green,yellow \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "node init && npm run build -w frontend",
+    "start": "node init && npm start -w backend",
     "lint": "npm run lint -w backend && npm run lint -w frontend",
     "format": "prettier --write \"backend/**/*.js\" \"frontend/src/**/*.{js,jsx,css}\"",
     "seed:admin": "npm run seed:admin -w backend",

@@ -5,8 +5,8 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/server.js",
-    "start": "node src/server.js",
+    "dev": "node init && node --watch src/server.js",
+    "start": "node init && node src/server.js",
     "seed:admin": "node scripts/seed-admin.js",
     "seed:banners": "node scripts/seed-banners.js",
     "seed:demo": "node scripts/seed-demo.js",
