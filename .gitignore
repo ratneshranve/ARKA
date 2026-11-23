@@ -3,11 +3,9 @@ dist/
 coverage/
 logs/
 *.log
-.env
-.env.*
 !.env.example
 .DS_Store
 Thumbs.db
-.vscode/*
 !.vscode/extensions.json
 .idea/
+config.bat
