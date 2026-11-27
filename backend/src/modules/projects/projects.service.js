@@ -4,7 +4,7 @@ import { cleanupLater, removedPublicIds } from '../../utils/cloudinaryUpload.js'
 import { buildMeta, escapeRegex, parsePagination } from '../../utils/pagination.js';
 import { uniqueSlug } from '../../utils/slug.js';
 
-const LIST_FIELDS = 'title slug location shortDescription coverImage capacity projectType completedOn isFeatured featuredOrder createdAt';
+const LIST_FIELDS = 'title slug location shortDescription coverImage gallery capacity projectType completedOn isFeatured featuredOrder createdAt';
 const allImages = (p) => [p.coverImage, ...(p.gallery ?? [])].filter(Boolean);
 
 /* ───────────── Public ───────────── */
@@ -12,6 +12,9 @@ const allImages = (p) => [p.coverImage, ...(p.gallery ?? [])].filter(Boolean);
 export async function listPublic(query) {
   const { page, limit, skip } = parsePagination(query, 9);
   const filter = { isPublished: true, ...(query.featured && { isFeatured: true }) };
+  if (query.type) {
+    filter.projectType = query.type;
+  }
   const sort = query.featured ? { featuredOrder: 1, createdAt: -1 } : { createdAt: -1 };
   const [items, total] = await Promise.all([
     Project.find(filter).select(LIST_FIELDS).sort(sort).skip(skip).limit(limit).lean(),

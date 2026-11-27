@@ -33,7 +33,11 @@ export const createProjectSchema = z.object({
 
 export const updateProjectSchema = createProjectSchema;
 
-export const publicListQuery = z.object({ featured: boolQuery, ...pageQuery });
+export const publicListQuery = z.object({
+  type: z.string().trim().optional(),
+  featured: boolQuery,
+  ...pageQuery,
+});
 
 export const adminListQuery = z.object({
   search: z.string().trim().max(100).optional(),
