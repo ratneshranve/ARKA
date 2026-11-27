@@ -17,7 +17,7 @@ const CATEGORY_META = {
   },
   commercial: {
     title: 'Commercial Solar',
-    desc: 'High-performance solar systems for malls, office complexes, and institutions to cut operating electricity overheads.',
+    desc: 'High-performance solar systems for malls, office complexes, and retail facilities to cut operating electricity overheads.',
     tag: 'Commercial & Retail',
   },
   industrial: {
@@ -29,11 +29,6 @@ const CATEGORY_META = {
     title: 'Agricultural Solar',
     desc: 'Solar water pumps and rural clean energy installations providing reliable, diesel-free irrigation for farms.',
     tag: 'Pumps & Farming',
-  },
-  institutional: {
-    title: 'Institutional Solar',
-    desc: 'Eco-friendly solar infrastructure designed for schools, universities, hospitals, and campus facilities.',
-    tag: 'Campuses & Hospitals',
   },
   other: {
     title: 'Specialized Solar Projects',
@@ -152,6 +147,8 @@ export default function ProjectCategoriesSection() {
   const categories = useMemo(() => {
     const grouped = {};
 
+    const isPhoto = (img) => img?.url && !img.url.toLowerCase().endsWith('.svg');
+
     for (const project of allProjects) {
       const type = project.projectType || 'residential';
       if (!grouped[type]) {
@@ -162,14 +159,14 @@ export default function ProjectCategoriesSection() {
       }
       grouped[type].projects.push(project);
 
-      // Add cover image
-      if (project.coverImage?.url) {
+      // Add cover image if real photo
+      if (isPhoto(project.coverImage)) {
         grouped[type].images.push(project.coverImage);
       }
-      // Add gallery images uploaded from admin
+      // Add gallery images uploaded from admin if real photo
       if (Array.isArray(project.gallery)) {
         for (const g of project.gallery) {
-          if (g?.url && !grouped[type].images.some((img) => img.url === g.url)) {
+          if (isPhoto(g) && !grouped[type].images.some((img) => img.url === g.url)) {
             grouped[type].images.push(g);
           }
         }
@@ -212,7 +209,7 @@ export default function ProjectCategoriesSection() {
           desc: CATEGORY_META.residential.desc,
           tag: CATEGORY_META.residential.tag,
           projectCount: 0,
-          images: [{ url: '/images/demo/project-residential.svg' }],
+          images: [{ url: '/images/demo/project-residential.jpg' }],
           projects: [],
           link: `${ROUTES.projects}?type=residential`,
         },
@@ -223,7 +220,7 @@ export default function ProjectCategoriesSection() {
           desc: CATEGORY_META.commercial.desc,
           tag: CATEGORY_META.commercial.tag,
           projectCount: 0,
-          images: [{ url: '/images/demo/project-commercial.svg' }],
+          images: [{ url: '/images/demo/project-commercial.jpg' }],
           projects: [],
           link: `${ROUTES.projects}?type=commercial`,
         },
@@ -234,7 +231,7 @@ export default function ProjectCategoriesSection() {
           desc: CATEGORY_META.industrial.desc,
           tag: CATEGORY_META.industrial.tag,
           projectCount: 0,
-          images: [{ url: '/images/demo/project-industrial.svg' }],
+          images: [{ url: '/images/demo/project-industrial.jpg' }],
           projects: [],
           link: `${ROUTES.projects}?type=industrial`,
         },

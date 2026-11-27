@@ -54,7 +54,6 @@ export const PROJECT_TYPES = [
   { value: 'residential', label: 'Residential' },
   { value: 'commercial', label: 'Commercial' },
   { value: 'industrial', label: 'Industrial' },
-  { value: 'institutional', label: 'Institutional' },
   { value: 'agricultural', label: 'Agricultural' },
   { value: 'other', label: 'Other' },
 ];

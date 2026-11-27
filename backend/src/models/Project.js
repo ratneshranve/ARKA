@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { ImageSchema, KeyValueSchema } from './shared.js';
 
-export const PROJECT_TYPES = ['residential', 'commercial', 'industrial', 'institutional', 'agricultural', 'other'];
+export const PROJECT_TYPES = ['residential', 'commercial', 'industrial', 'agricultural', 'other'];
 
 const ProjectSchema = new mongoose.Schema(
   {
